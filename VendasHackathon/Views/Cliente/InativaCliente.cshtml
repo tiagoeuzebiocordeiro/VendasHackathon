@@ -1,44 +1,33 @@
-﻿@model VendasHackathon.Models.ClienteModel
+﻿@model ClienteModel;
 
 @{
-    ViewData["Title"] = "Inativa cliente";
+    ViewData["title"] = "Inativa cliente";
 }
 
-<h4>Inativar Cliente</h4>
-<h6> tem certeza que deseja inativar o cliente @Model.Nome ?</h6>
-<br />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="InativaCliente">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group mb-2">
-                <label asp-for="Nome" class="control-label"></label>
-                <input disabled asp-for="Nome" class="form-control" />
+<div>
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Deleção de autores</h1>
+    </div>
+        <form method="post" asp-controller="Cliente" asp-action="InativaCliente">
+            <input type="hidden" asp-for="Id" />
+            <h2 class="text-warning text-center">Tem certeza que deseja excluir o registro abaixo ?</h2>
+            <div class="mb-3">
+                <label for="Nome" class="form-label text-light">Nome do cliente:</label>
+                <input type="text" class="form-control text-light" asp-for="Nome" id="Nome" disabled>
                 <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-2">
-                <label asp-for="Cpf" class="control-label">CPF</label>
-                <input disabled asp-for="Cpf" class="form-control" />
+
+                <label for="Cpf" class="form-label text-light">Nome do cliente:</label>
+                <input type="text" class="form-control text-light" asp-for="Cpf" id="Nome" disabled>
                 <span asp-validation-for="Cpf" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-4">
-                <label asp-for="DataNascimento" class="control-label">Data de Nascimento</label>
-                <input disabled asp-for="DataNascimento" class="form-control" type="date" />
+
+                <label for="DataNascimento" class="form-label text-light pt-3">Data de nascimento do cliente:</label>
+                <input disabled type="date" class="form-control text-light" asp-for="DataNascimento" id="DataNascimento">
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Inativa" class="btn btn-danger" />
+
+            <div class="d-flex gap-5 mt-5">
+                <button type="submit" class="btn btn-danger w-50">Inativar</button>
+                <a class="btn btn-primary w-50" asp-controller="Cliente" asp-action="Index">Voltar</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
