@@ -16,15 +16,15 @@ namespace VendasHackathon.Repositories.Venda
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
-        {
-            VendaModel venda = _context.Vendas.Find(id);
-            if (venda != null)
-            {
-                _context.Vendas.Remove(venda);
-                _context.SaveChanges();
-            }
-        }
+        //public void Delete(int id)
+        //{
+        //    VendaModel venda = _context.Vendas.Find(id);
+        //    if (venda != null)
+        //    {
+        //        _context.Vendas.Remove(venda);
+        //        _context.SaveChanges();
+        //    }
+        //}
 
         public IEnumerable<VendaModel> GetAll()
         {

@@ -8,6 +8,6 @@ namespace VendasHackathon.Repositories.Venda
         VendaModel GetById(int id);
         void Add(VendaModel venda);
         void Update(VendaModel venda);
-        void Delete(int id);
+       // void Delete(int id); Não iremos deletar uma venda!
     }
 }
