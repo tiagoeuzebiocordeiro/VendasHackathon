@@ -4,31 +4,35 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>ClienteModel</h4>
+<h4>Cadastrar Cliente</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Cpf" class="control-label"></label>
+            <div class="form-group mb-2">
+                <label asp-for="Cpf" class="control-label">CPF</label>
                 <input asp-for="Cpf" class="form-control" />
                 <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DataNascimento" class="control-label"></label>
-                <input asp-for="DataNascimento" class="form-control" />
+            <div class="form-group mb-4">
+                <label asp-for="DataNascimento" class="control-label">Data de Nascimento</label>
+                <input asp-for="DataNascimento" class="form-control" type="date"/>
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>
     </div>
