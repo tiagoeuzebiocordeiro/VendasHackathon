@@ -13,7 +13,7 @@ namespace VendasHackathon.Models
         [Column("id_cliente_associado")]
         public int ClienteId { get; set; }
         [Required]
-        [DisplayFormat(DataFormatString = "0:{dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         [Column("data_efetuacao_venda")]
         public DateTime DataVenda { get; set; }
 
@@ -23,7 +23,7 @@ namespace VendasHackathon.Models
         public decimal TotalVenda()
         {
             return this.ItemsVenda
-                .Sum(x => x.Quantidade);
+                .Sum(x => x.ValorUnitario * x.Quantidade);
         }
     }
 }
