@@ -1,4 +1,5 @@
-﻿using VendasHackathon.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using VendasHackathon.DataContext;
 using VendasHackathon.Models;
 
 namespace VendasHackathon.Repositories.Cliente
@@ -27,9 +28,10 @@ namespace VendasHackathon.Repositories.Cliente
             return _context.Clientes.ToList();
         }
 
-        public ClienteModel GetById(int id)
+        public async Task<ClienteModel> GetByIdAsync(int? id)
         {
-            throw new NotImplementedException();
+            return await _context.Clientes
+                .FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public void Update(ClienteModel cliente)
