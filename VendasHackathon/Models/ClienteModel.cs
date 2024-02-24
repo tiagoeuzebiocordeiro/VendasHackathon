@@ -24,5 +24,9 @@ namespace VendasHackathon.Models
         [Column("data_nasc_cliente")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataNascimento { get; set; }
+
+        [Required(ErrorMessage = "O status do cliente deve ser informado!")]
+        [Column("ativo_cliente")]
+        public bool Ativo { get; set; }
     }
 }
