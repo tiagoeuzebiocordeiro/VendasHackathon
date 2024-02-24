@@ -15,6 +15,15 @@ namespace VendasHackathon.DataContext
         public DbSet<ItemVendaModel> ItensVenda { get; set; }
         public DbSet<VendaModel> Vendas { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<VendaModel>()
+                .HasMany(v => v.ItemsVenda)
+                .WithOne(iv => iv.Venda)
+                .HasForeignKey(v => v.VendaId)
+                .IsRequired();
 
+            base.OnModelCreating(builder);
+        }
     }
 }
