@@ -6,29 +6,42 @@ namespace VendasHackathon.Repositories.Cliente
 {
     public class ClienteRepository : IClienteRepository
     {
+        private readonly ApplicationDbContext _context;
+        public ClienteRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public void Add(ClienteModel cliente)
         {
-            throw new NotImplementedException();
+            _context.Clientes.Add(cliente);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            ClienteModel cliente = _context.Clientes.Find(id);
+            if (cliente != null)
+            {
+                _context.Clientes.Remove(cliente);
+                _context.SaveChanges();
+            }
         }
 
         public IEnumerable<ClienteModel> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Clientes.ToList();
         }
 
         public ClienteModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Clientes.Find(id);
         }
 
         public void Update(ClienteModel cliente)
         {
-            throw new NotImplementedException();
+            _context.Clientes.Update(cliente);
+            _context.SaveChanges();
         }
     }
 }
