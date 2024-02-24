@@ -20,5 +20,10 @@ namespace VendasHackathon.Models
         // Propriedade de navegação, verificar se futuramente será possivel cadastrar sem passar como null.
         public virtual ClienteModel Cliente { get; set; }
         public ICollection<ItemVendaModel> ItemsVenda { get; set; } = new List<ItemVendaModel>();
+        public decimal TotalVenda()
+        {
+            return this.ItemsVenda
+                .Sum(x => x.Quantidade);
+        }
     }
 }
