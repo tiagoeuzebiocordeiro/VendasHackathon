@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using VendasHackathon.DataContext;
 using VendasHackathon.Middleware;
 using VendasHackathon.Repositories.Cliente;
+using VendasHackathon.Repositories.Venda;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 // AQUI EU DIGO: TODA VEZ QUE EU CHAMAR O ICLIENTEREPO, NA VERDADE EU ESTOU ME REFERINDO AO CLIENTE REPOSITORY (REGRA DE NEGOCIO)
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IVendaRepository, VendaRepository>();
 // AQUI EU ME CONECTO COM MEU BANCO DE DADOS
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
