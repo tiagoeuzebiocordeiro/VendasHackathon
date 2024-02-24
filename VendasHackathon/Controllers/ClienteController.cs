@@ -56,26 +56,15 @@ namespace VendasHackathon.Controllers
             return View(cliente);
         }
 
-        [HttpGet]
-        public IActionResult InativaCliente(int id)
+        [HttpPost]
+        public IActionResult InativaCliente(int id, bool status)
         {
-            if (id == null || id == 0)
+            if((id == null || id == 0) || status == null)
             {
                 return NotFound();
             }
-            ClienteModel cliente = _clienteRepository.GetById(id);
-            return View(cliente);
-        }
-
-        [HttpPost]
-        public IActionResult InativaCliente(ClienteModel cliente)
-        {
-            if (ModelState.IsValid)
-            {
-                _clienteRepository.InativaCliente(cliente.Id);
-                return RedirectToAction("Index");
-            }
-            return View(cliente);
+            _clienteRepository.InativaCliente(id, status);
+            return RedirectToAction("Index");
         }
 
     }

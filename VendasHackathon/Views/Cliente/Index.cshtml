@@ -17,6 +17,7 @@
                 <th scope="col">Nome</th>
                 <th scope="col">CPF</th>
                 <th scope="col">Data de Nascimento</th>
+                <th scope="col">Situação</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -29,41 +30,17 @@
                     <td>@item.Cpf</td>
                     <td>@Html.DisplayFor(model => item.DataNascimento)</td>
                     <td>
-                        @if(item.Ativo)
-                        {
-                            <span>Ativo</span>
-                        }
-                        else
-                        {
-                            <span>Inativo</span>
-                        }
+                       @(item.Ativo ? "Ativo" : "Inativo")
                     </td>
                     <td>
                         <a class="btn btn-warning" asp-controller="Cliente" asp-route-id="@item.Id" asp-action="Update" role="button">Editar</a>
                         @* <a class="btn btn-danger" role="button" asp-route-id="@item.Id" asp-action="InativaCliente" asp-controller="Cliente">Inativar</a> *@
-                        <a class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#modalInativar">Inativar</a>
+                        <a class="btn @(item.Ativo ? "btn-danger" : "btn-success")" role="button" asp-route-id="@item.Id" asp-route-ativo="@item.Ativo" asp-action="InativaCliente" asp-controller="Cliente">
+                            @(item.Ativo ? "Desativar" : "Ativar")
+                        </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="modalInativar" tabindex="-1" aria-labelledby="modalInativar" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalInativar">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
 </div>

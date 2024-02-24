@@ -38,12 +38,12 @@ namespace VendasHackathon.Repositories.Cliente
             return _context.Clientes.Find(id);
         }
 
-        public void InativaCliente(int id)
+        public void InativaCliente(int id, bool status)
         {
             ClienteModel cliente = _context.Clientes.Find(id);
             if (cliente != null)
             {
-                cliente.Ativo = false;
+                cliente.Ativo = status;
                 _context.Clientes.Update(cliente);
                 _context.SaveChanges();
             }
