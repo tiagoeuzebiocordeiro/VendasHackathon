@@ -30,7 +30,7 @@
                     <td>@Html.DisplayFor(model => item.DataNascimento)</td>
                     <td>
                         <a class="btn btn-warning" asp-controller="Cliente" asp-route-id="@item.Id" asp-action="Update" role="button">Editar</a>
-                        <a class="btn btn-danger" role="button" asp-route-id="@item.Id" asp-action="Inativar" asp-controller="Cliente">Inativar</a>
+                        <a class="btn btn-danger" role="button" asp-route-id="@item.Id" asp-action="InativaCliente" asp-controller="Cliente">Inativar</a>
                     </td>
                 </tr>
             }
