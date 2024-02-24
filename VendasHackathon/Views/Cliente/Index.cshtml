@@ -4,8 +4,13 @@
     ViewData["Title"] = "Lista de Clientes";
 }
 
+<div>
+    <h1>Lista de clientes</h1>
+    <a class="btn btn-primary" asp-controller="Cliente" asp-action="Create">Cadastrar cliente</a>
+</div>
+
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table id="tabela-formatada" class="table table-striped table-sm">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -24,8 +29,8 @@
                     <td>@item.Cpf</td>
                     <td>@Html.DisplayFor(model => item.DataNascimento)</td>
                     <td>
-                        <a class="btn btn-primary" asp-controller="Cliente" asp-route-id="@item.Id" asp-action="Update" role="button">Editar</a>
-                        <a class="btn btn-primary" href="#" role="button">Inativar</a>
+                        <a class="btn btn-warning" asp-controller="Cliente" asp-route-id="@item.Id" asp-action="Update" role="button">Editar</a>
+                        <a class="btn btn-danger" role="button" asp-route-id="@item.Id" asp-action="Inativar" asp-controller="Cliente">Inativar</a>
                     </td>
                 </tr>
             }
