@@ -33,5 +33,28 @@ namespace VendasHackathon.Controllers
             _clienteRepository.Add(cliente);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            ClienteModel cliente = _clienteRepository.GetById(id);
+            return View(cliente);
+        }
+
+        [HttpPost]
+        public IActionResult Update(ClienteModel cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                _clienteRepository.Update(cliente);
+                return RedirectToAction("Index");
+            }
+            return View(cliente);
+        }
+
     }
 }
