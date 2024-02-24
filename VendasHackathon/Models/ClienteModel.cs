@@ -22,7 +22,7 @@ namespace VendasHackathon.Models
 
         [Required(ErrorMessage = "A data de nascimento do cliente deve ser informada!")]
         [Column("data_nasc_cliente")]
-        [DisplayFormat(DataFormatString = "0:{dd/MM/yyyy", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "0:{dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataNascimento { get; set; }
     }
 }
