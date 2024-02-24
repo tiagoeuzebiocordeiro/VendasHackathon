@@ -16,23 +16,25 @@
                 <th scope="col">#</th>
                 <th scope="col">Cliente Associado</th>
                 <th scope="col">Data da Venda</th>
+                <th scope="col">Total</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
-            @if (Model != null) {
+            @if(Model != null) {
                 @foreach (var item in Model)
                 {
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Cliente.Nome</td>
-                    <td>@Html.DisplayFor(model => item.DataNascimento)</td>
-
-                    <td></td>
+                    <td>@Html.DisplayFor(model => item.DataVenda)</td>
+                    <td>@item.ItemsVenda.Sum(x => x.Quantidade)</td>
+                    <td>
+                        <a class="btn btn-warning" asp-controller="Cliente" asp-route-id="@item.Id" asp-action="Update" role="button">Editar</a>
+                    </td>
                 </tr>
                 }
             }
-           
         </tbody>
     </table>
 </div>
