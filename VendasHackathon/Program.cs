@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 // REPOSITORY PATTERN
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IVendaRepository, VendaRepository>();
-builder.Services.AddScoped<IItemVendaRepository, IItemVendaRepository>();
+builder.Services.AddScoped<IItemVendaRepository, ItemVendaRepository>();
 // AQUI EU ME CONECTO COM MEU BANCO DE DADOS
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
