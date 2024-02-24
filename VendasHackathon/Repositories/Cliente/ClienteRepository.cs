@@ -6,13 +6,6 @@ namespace VendasHackathon.Repositories.Cliente
 {
     public class ClienteRepository : IClienteRepository
     {
-        private readonly ApplicationDbContext _context;
-
-        public ClienteRepository(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
         public void Add(ClienteModel cliente)
         {
             throw new NotImplementedException();
@@ -25,13 +18,12 @@ namespace VendasHackathon.Repositories.Cliente
 
         public IEnumerable<ClienteModel> GetAll()
         {
-            return _context.Clientes.ToList();
+            throw new NotImplementedException();
         }
 
-        public ClienteModel GetById(int? id)
+        public ClienteModel GetById(int id)
         {
-            return _context.Clientes
-                .FirstOrDefault(m => m.Id == id);
+            throw new NotImplementedException();
         }
 
         public void Update(ClienteModel cliente)
