@@ -9,6 +9,6 @@ namespace VendasHackathon.Repositories.Cliente
         void Update(ClienteModel cliente);
         void Delete(int id);
         void Add(ClienteModel cliente);
-        void InativaCliente(int id);
+        void InativaCliente(int id, bool status);
     }
 }
