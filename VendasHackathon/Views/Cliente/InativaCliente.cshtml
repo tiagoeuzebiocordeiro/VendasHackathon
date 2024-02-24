@@ -8,26 +8,26 @@
     <div class="mb-5 text-center">
         <h1 class="text-light">Deleção de autores</h1>
     </div>
-        <form method="post" asp-controller="Cliente" asp-action="InativaCliente">
-            <input type="hidden" asp-for="Id" />
-            <h2 class="text-warning text-center">Tem certeza que deseja excluir o registro abaixo ?</h2>
-            <div class="mb-3">
-                <label for="Nome" class="form-label text-light">Nome do cliente:</label>
-                <input type="text" class="form-control text-light" asp-for="Nome" id="Nome" disabled>
-                <span asp-validation-for="Nome" class="text-danger"></span>
+    <form method="post" asp-controller="Cliente" asp-action="InativaCliente">
+        <input type="hidden" asp-for="Id" />
+        <h2 class="text-warning text-center">Tem certeza que deseja excluir o registro abaixo ?</h2>
+        <div class="mb-3">
+            <label for="Nome" class="form-label text-light">Nome do cliente:</label>
+            <input type="text" class="form-control text-light" asp-for="Nome" id="Nome" disabled>
+            <span asp-validation-for="Nome" class="text-danger"></span>
 
-                <label for="Cpf" class="form-label text-light">Nome do cliente:</label>
-                <input type="text" class="form-control text-light" asp-for="Cpf" id="Nome" disabled>
-                <span asp-validation-for="Cpf" class="text-danger"></span>
+            <label for="Cpf" class="form-label text-light">Nome do cliente:</label>
+            <input type="text" class="form-control text-light" asp-for="Cpf" id="Nome" disabled>
+            <span asp-validation-for="Cpf" class="text-danger"></span>
 
-                <label for="DataNascimento" class="form-label text-light pt-3">Data de nascimento do cliente:</label>
-                <input disabled type="date" class="form-control text-light" asp-for="DataNascimento" id="DataNascimento">
-                <span asp-validation-for="DataNascimento" class="text-danger"></span>
-            </div>
+            <label for="DataNascimento" class="form-label text-light pt-3">Data de nascimento do cliente:</label>
+            <input disabled type="date" class="form-control text-light" asp-for="DataNascimento" id="DataNascimento">
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
 
-            <div class="d-flex gap-5 mt-5">
-                <button type="submit" class="btn btn-danger w-50">Inativar</button>
-                <a class="btn btn-primary w-50" asp-controller="Cliente" asp-action="Index">Voltar</a>
-            </div>
-        </form>
-    </div>
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-danger w-50">Inativar</button>
+            <a class="btn btn-primary w-50" asp-controller="Cliente" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+</div>
