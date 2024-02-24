@@ -4,7 +4,7 @@ namespace VendasHackathon.Repositories.Cliente
 {
     public interface IClienteRepository
     {
-        IEnumerable<ClienteModel> GetAllAsync();
+        IEnumerable<ClienteModel> GetAll();
         ClienteModel GetById(int id);
         void Update(ClienteModel cliente);
         void Delete(int id);

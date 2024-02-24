@@ -28,10 +28,10 @@ namespace VendasHackathon.Repositories.Cliente
             return _context.Clientes.ToList();
         }
 
-        public async Task<ClienteModel> GetByIdAsync(int? id)
+        public ClienteModel GetById(int? id)
         {
-            return await _context.Clientes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            return _context.Clientes
+                .FirstOrDefault(m => m.Id == id);
         }
 
         public void Update(ClienteModel cliente)
