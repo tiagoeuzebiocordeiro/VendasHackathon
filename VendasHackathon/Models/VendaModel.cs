@@ -18,6 +18,6 @@ namespace VendasHackathon.Models
         public DateTime DataVenda { get; set; }
 
         // Propriedade de navegação, verificar se futuramente será possivel cadastrar sem passar como null.
-        public virtual ClienteModel ClienteModel { get; set; }
+        public virtual ClienteModel Cliente { get; set; }
     }
 }

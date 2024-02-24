@@ -6,7 +6,7 @@ namespace VendasHackathon.DataContext
 {
     public class ApplicationDbContext : IdentityDbContext<UsuarioModel, PerfilModel, int>
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             
         }

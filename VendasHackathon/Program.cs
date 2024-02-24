@@ -7,14 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
-
 // AQUI EU ME CONECTO COM MEU BANCO DE DADOS
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+var app = builder.Build();
 
 // Middleware para tratamento de exceções
 app.UseMiddleware<ExceptionMiddleware>();

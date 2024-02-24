@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VendasHackathon.Models
 {
-    [Table("tb_item_vendas")]
+    [Table("tb_itens_vendas")]
     public class ItemVendaModel
     {
         [Key]
@@ -24,10 +24,11 @@ namespace VendasHackathon.Models
         public int Quantidade { get; set; }
 
         [Required]
-        public int IdVenda { get; set; }
+        [Column("id_venda_associada")]
+        public int VendaId { get; set; }
 
         // Propriedade de navegação do objeto venda
-        public virtual VendaModel VendaAssociada { get; set; }
+        public virtual VendaModel Venda { get; set; }
 
        /* 
         * Essa maneira foi sugerida pelo Felipe Euzébio, iremos ver se ela é apropriada na reta final de desenvolvimento.
